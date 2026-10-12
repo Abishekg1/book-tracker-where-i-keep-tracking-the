@@ -13,6 +13,15 @@ function render(){
         emptyMessage.style.display="none";
     }
 }
+function handleFormSubmit(event) {
+    event.preventDefault();
+    console.log("Add book clicked");
+    if (titleInput.value === "" || authorInput.value === "") {
+    return;
+}
+
+}
 
 console.log(`Books at startup: ${state.length}`);
 render();
+bookForm.addEventListener("submit", handleFormSubmit);
