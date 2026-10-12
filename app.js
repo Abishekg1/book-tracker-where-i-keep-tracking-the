@@ -13,13 +13,31 @@ function render(){
         emptyMessage.style.display="none";
     }
 }
+function makeBook(title,author){
+    return{
+        id: Date.now(),
+        title: title,
+        author: author,
+        status: "to-read"
+    }
+}
+function addBook(title , author){
+    const book = makeBook(title,author);
+    console.log(book);
+    
+    
+}
 function handleFormSubmit(event) {
     event.preventDefault();
     console.log("Add book clicked");
-    if (titleInput.value === "" || authorInput.value === "") {
+    const title = titleInput.value.trim();
+    const author = authorInput.value.trim();
+    if (title=== "" || author === "") {
     return;
 }
-
+addBook(title, author);
+bookForm.reset();
+titleInput.focus();
 }
 
 console.log(`Books at startup: ${state.length}`);
