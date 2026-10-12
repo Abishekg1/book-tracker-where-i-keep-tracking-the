@@ -1,13 +1,22 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>My app</title>
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
-  <h1>My app</h1>
-  <script src="app.js"></script>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Book Tracker</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <h1>Book Tracker</h1>
+    <form id="book-form" class="book-form">
+        <input type="text" id="title-input" placeholder="Book title" required>
+        <input type="text" id="author-input" placeholder="Author" required>
+        <button type="submit">Add book</button>
+    </form>
+    <ul id="book-list" class="book-list"></ul>
+    <p id="empty-message" class="empty-message">
+        No books yet. Add your first one above.
+    </p>
+    <script src="app.js"></script>
+  </body>
 </html>
