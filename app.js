@@ -4,7 +4,21 @@ const authorInput = document.querySelector("#author-input");
 const bookList = document.querySelector("#book-list");
 const emptyMessage = document.querySelector("#empty-message");
 // the list of books shown on the page
-let state=[];
+function loadBooks() {
+    const saved = localStorage.getItem(STORAGE_KEY);
+
+    if (saved === null) {
+        return [];
+    }
+
+    return JSON.parse(saved);
+}
+function saveBooks() {
+    const saved = JSON.stringify(state);
+    localStorage.setItem(STORAGE_KEY, saved);
+}
+const STORAGE_KEY = "bookTrackerBooks";
+let state=loadBooks();
 function makeBookItem(book) {
     const li = document.createElement("li");
     li.className = "book-item";
@@ -56,6 +70,7 @@ function addBook(title , author){
     const book = makeBook(title,author);
     console.log(book);
     state.push(book);
+    saveBooks();
     render();
     
     
