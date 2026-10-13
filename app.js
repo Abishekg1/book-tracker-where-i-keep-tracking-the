@@ -3,6 +3,7 @@ const titleInput = document.querySelector("#title-input");
 const authorInput = document.querySelector("#author-input");
 const bookList = document.querySelector("#book-list");
 const emptyMessage = document.querySelector("#empty-message");
+const themeButton = document.querySelector("#theme-button");
 // the list of books shown on the page
 function loadBooks() {
     const saved = localStorage.getItem(STORAGE_KEY);
@@ -129,7 +130,13 @@ addBook(title, author);
 bookForm.reset();
 titleInput.focus();
 }
+function toggleTheme() {
+    document.body.classList.toggle("dark");
+}
+
+themeButton.addEventListener("click", toggleTheme);
+
+bookForm.addEventListener("submit", handleFormSubmit);
 
 console.log(`Books at startup: ${state.length}`);
 render();
-bookForm.addEventListener("submit", handleFormSubmit);
